@@ -1,0 +1,118 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light dark;
+  --bg: #f8fafc;
+  --card: #ffffff;
+  --primary: #3b82f6;
+  --accent: #8b5cf6;
+  --text: #0f172a;
+  --border: #e2e8f0;
+}
+
+html.dark {
+  --bg: #0f172a;
+  --card: #1e293b;
+  --primary: #3b82f6;
+  --accent: #8b5cf6;
+  --text: #e2e8f0;
+  --border: #334155;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto,
+    Helvetica, Arial, 'Apple Color Emoji', 'Segoe UI Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.5;
+}
+
+/* Helps avoid layout shift when toggling dark mode */
+html {
+  scroll-behavior: smooth;
+}
+
+/* App utility classes (work even without Tailwind) */
+.app-border {
+  border: 1px solid var(--border);
+}
+
+.app-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+}
+
+.app-card-soft {
+  background: color-mix(in oklab, var(--card) 92%, transparent);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+}
+
+/* Better default typography */
+h1,
+h2,
+h3 {
+  margin: 0;
+}
+p {
+  margin: 0;
+}
+
+.app-muted {
+  opacity: 0.85;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  font-weight: 600;
+  transition: 150ms ease;
+  border: 1px solid transparent;
+  height: 40px;
+  padding: 0 14px;
+  font-size: 14px;
+}
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+.btn-primary {
+  background: var(--primary);
+  color: white;
+}
+.btn-primary:hover {
+  filter: brightness(1.07);
+}
+.btn-ghost {
+  background: transparent;
+  border-color: var(--border);
+  color: var(--text);
+}
+.btn-ghost:hover {
+  background: color-mix(in oklab, var(--card) 70%, transparent);
+}
+.btn-danger {
+  background: #e11d48;
+  color: white;
+}
+.btn-danger:hover {
+  filter: brightness(1.05);
+}
+
+.ring-focus:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px color-mix(in oklab, var(--primary) 35%, transparent);
+}
